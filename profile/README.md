@@ -11,6 +11,20 @@ Applications can share company data, users, permissions and services instead of 
 
 Run that application on Cordango, or deterministically turn the same definition into conventional source code you can own and deploy anywhere.
 
+## Main repositories
+
+[cordango](http://github.com/cordango/cordango "cordango"): Application schema, compiler and core tooling
+
+[docs](http://docs.cordango.com "docs"): Documentation, concepts and guides
+generators: Source generators for standalone applications
+
+[examples](http://github.com/cordango/examples "examples"): Example Cordango applications
+
+
+[Start here](https://docs.cordango.com/quickstart "Start here")
+
+[Website](https://www.cordango.com "Website")
+
 ## What Cordango does
 - Build complete business applications from structured app definitions
 - Create apps with AI, YAML or JSON
@@ -40,20 +54,9 @@ We're building the application definition, schema, compiler and source-generatio
 
 The hosted Cordango platform builds on top of that foundation with the runtime and company-wide services needed to operate applications at scale.
 
-Main repositories
-[cordango](http://github.com/cordango/cordango "cordango"): Application schema, compiler and core tooling
-
-[docs](http://docs.cordango.com "docs"): Documentation, concepts and guides
-generators: Source generators for standalone applications
-
-[examples](http://github.com/cordango/examples "examples"): Example Cordango applications
-
 
 More of the Cordango ecosystem will become public as it stabilizes.
 
-[Start here](https://docs.cordango.com/quickstart "Start here")
-
-[Website](https://www.cordango.com "Website")
 
 
 Cordango is still early, expect bugs :)
