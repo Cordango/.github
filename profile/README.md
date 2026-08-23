@@ -11,19 +11,17 @@ Applications can share company data, users, permissions and services instead of 
 
 Run that application on Cordango, or deterministically turn the same definition into conventional source code you can own and deploy anywhere.
 
-## Main repositories
+## Main Links
+[Start here](https://docs.cordango.com/quickstart "Start here"): Want to get started quickly? Install the CLI and off ye go!
 
-[cordango](http://github.com/cordango/cordango "cordango"): Application schema, compiler and core tooling
+[cordango](http://github.com/cordango/cordango "Cordango/Cordango"): The main repository for our CLI, Code-Generator and Schema
 
-[docs](http://docs.cordango.com "docs"): Documentation, concepts and guides
+[docs](http://docs.cordango.com "Documentation"): Documentation, concepts and guides
 generators: Source generators for standalone applications
 
 [examples](http://github.com/cordango/examples "examples"): Example Cordango applications
 
 
-[Start here](https://docs.cordango.com/quickstart "Start here")
-
-[Website](https://www.cordango.com "Website")
 
 ## What Cordango does
 - Build complete business applications from structured app definitions
