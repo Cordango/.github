@@ -11,6 +11,10 @@ Applications can share company data, users, permissions and services instead of 
 
 Run that application on Cordango, or deterministically turn the same definition into conventional source code you can own and deploy anywhere.
 
+
+Cordango's declarative YAML schema exploits how modern LLM tokenizers (like Byte-Pair Encoding) process text, fundamentally increasing the signal-to-noise ratio by stripping out structural boilerplate. By abandoning the strict syntax of JSON, the platform allows the LLM to dedicate its context window entirely to the domain-specific language and business logic.
+
+
 ## Main Links
 [Start here](https://docs.cordango.com/quickstart "Start here"): Want to get started quickly? Install the CLI and off ye go!
 
@@ -20,7 +24,6 @@ Run that application on Cordango, or deterministically turn the same definition 
 generators: Source generators for standalone applications
 
 [examples](http://github.com/cordango/examples "examples"): Example Cordango applications
-
 
 
 ## What Cordango does
