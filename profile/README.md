@@ -7,12 +7,78 @@
 
 [Cordango](http://www.cordango.com "Cordango") is an AI-first application platform for building complete business applications on a shared, governed runtime.
 
-Applications can share company data, users, permissions and services instead of becoming isolated little islands. Underneath it all is an open application format that describes what an application is, from entities and views to workflows, calculations and behavior.
+Build anything. Run it like it belongs to the company.
 
-Run that application on Cordango, or deterministically turn the same definition into conventional source code you can own and deploy anywhere.
+Cordango is an application platform for building business software on a shared, governed company foundation.
 
+Apps share identity, people, organizations, permissions, audit history and company context instead of creating another isolated database, login and copy of your business every time somebody builds something.
 
-Cordango's declarative YAML schema exploits how modern LLM tokenizers (like Byte-Pair Encoding) process text, fundamentally increasing the signal-to-noise ratio by stripping out structural boilerplate. By abandoning the strict syntax of JSON, the platform allows the LLM to dedicate its context window entirely to the domain-specific language and business logic.
+Underneath the platform is an open application format and deterministic compiler.
+
+## Why?
+
+AI has become very good at writing code.
+
+But authentication, permissions, persistence, API structure and application plumbing do not need to be invented again every time an application is generated.
+
+Cordango moves the maintained artifact up a level.
+
+The human or agent describes **what the application is**. A deterministic compiler handles the implementation that should not vary between generations.
+
+Given the same App Definition, generator version and scaffold version, Cordango produces the same application byte for byte.
+
+That does not make a bad definition correct.
+
+It makes the implementation reproducible.
+
+## A tiny example
+
+```yaml
+entity: expense_claim
+
+fields:
+  submitted_by:
+    type: reference
+    targetEntity: person
+
+  amount:
+    type: money
+    currency: EUR
+    required: true
+```
+
+There is no SQL query, connection string, controller or component in that definition.
+
+Those are implementation details produced from it.
+
+cordango check
+cordango build
+
+The current dotnet-vue target generates a conventional application using ASP.NET Core, EF Core, PostgreSQL, Vue 3 and Vuetify.
+
+generated/expenses/
+
+├── api/
+
+├── web/
+
+├── Dockerfile
+
+└── docker-compose.yml
+
+Delete Cordango afterwards and the generated project still builds.
+
+Built for humans and agents
+
+The App Definition is intentionally much smaller than the implementation it represents.
+
+That makes it practical for a human to review and practical for an AI agent to create and modify.
+
+Across five applications we measured, writing the definition instead of generating the complete implementation avoided between 90.6% and 98.4% of output tokens.
+
+That saving is a consequence of the architecture, not the architecture itself.
+
+The model describes the application. The compiler writes the repeatable parts.
 
 
 ## Main Links
