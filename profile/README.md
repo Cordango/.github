@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  <strong>Business apps as compiled definitions.</strong>
+  <strong>A new architecture for AI-generated business software</strong>
 </p>
 
 <p align="center">
