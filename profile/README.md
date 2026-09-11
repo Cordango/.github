@@ -1,135 +1,208 @@
-<img width="1299" height="321" alt="image" src="https://github.com/user-attachments/assets/1105b1d8-d7a4-4232-b67e-d7504942f615" />
+<img width="1299" height="321" alt="Cordango" src="https://github.com/user-attachments/assets/1105b1d8-d7a4-4232-b67e-d7504942f615" />
 
-<p align="center"> <img width="600" height="130" alt="logo-white" src="https://github.com/user-attachments/assets/4b41f0e3-1bde-42ee-a058-04b5ad9c849c" /> </p>
-  
- <p align="center"> <strong>Build anything. Run it like it belongs to the company.</strong> </p>
+<p align="center">
+  <img width="600" height="130" alt="Cordango" src="https://github.com/user-attachments/assets/4b41f0e3-1bde-42ee-a058-04b5ad9c849c" />
+</p>
 
+<p align="center">
+  <strong>Business apps as compiled definitions.</strong>
+</p>
 
-[Cordango](http://www.cordango.com "Cordango") is an AI-first application platform for building complete business applications on a shared, governed runtime.
+<p align="center">
+  Define the application once. Run it on Cordango or compile it into conventional source code you own.
+</p>
 
-Build anything. Run it like it belongs to the company.
+---
 
-Cordango is an application platform for building business software on a shared, governed company foundation.
+Cordango is an application platform built around a simple idea:
 
-Apps share identity, people, organizations, permissions, audit history and company context instead of creating another isolated database, login and copy of your business every time somebody builds something.
+**the maintained artifact of a business application does not have to be its source code.**
 
-Underneath the platform is an open application format and deterministic compiler.
+Instead, a Cordango App Definition describes what the application *is*:
 
-## Why?
+- entities and relationships
+- permissions and roles
+- processes and commands
+- workflows and events
+- calculations and rollups
+- pages, forms and application UI
 
-AI has become very good at writing code.
+A deterministic compiler handles the repeatable implementation.
 
-But authentication, permissions, persistence, API structure and application plumbing do not need to be invented again every time an application is generated.
-
-Cordango moves the maintained artifact up a level.
-
-The human or agent describes **what the application is**. A deterministic compiler handles the implementation that should not vary between generations.
-
-Given the same App Definition, generator version and scaffold version, Cordango produces the same application byte for byte.
-
-That does not make a bad definition correct.
-
-It makes the implementation reproducible.
-
-## A tiny example
-
-```yaml
-entity: expense_claim
-
-fields:
-  submitted_by:
-    type: reference
-    targetEntity: person
-
-  amount:
-    type: money
-    currency: EUR
-    required: true
+```text
+Human / AI agent
+       │
+       ▼
+ App Definition
+       │
+       ├──────────────► Cordango Platform
+       │
+       └──────────────► deterministic compiler
+                              │
+                              ▼
+                       conventional source
 ```
 
-There is no SQL query, connection string, controller or component in that definition.
-
-Those are implementation details produced from it.
-
-cordango check
-cordango build
-
-The current dotnet-vue target generates a conventional application using ASP.NET Core, EF Core, PostgreSQL, Vue 3 and Vuetify.
-
-generated/expenses/
-
-├── api/
-
-├── web/
-
-├── Dockerfile
-
-└── docker-compose.yml
-
-Delete Cordango afterwards and the generated project still builds.
-
-Built for humans and agents
-
-The App Definition is intentionally much smaller than the implementation it represents.
-
-That makes it practical for a human to review and practical for an AI agent to create and modify.
-
-Across five applications we measured, writing the definition instead of generating the complete implementation avoided between 90.6% and 98.4% of output tokens.
-
-That saving is a consequence of the architecture, not the architecture itself.
-
-The model describes the application. The compiler writes the repeatable parts.
-
-
-## Main Links
-[Start here](https://docs.cordango.com/quickstart "Start here"): Want to get started quickly? Install the CLI and off ye go!
-
-[cordango](http://github.com/cordango/cordango "Cordango/Cordango"): The main repository for our CLI, Code-Generator and Schema
-
-[docs](http://docs.cordango.com "Documentation"): Documentation, concepts and guides
-generators: Source generators for standalone applications
-
-[examples](http://github.com/cordango/examples "examples"): Example Cordango applications
-
-
-## What Cordango does
-- Build complete business applications from structured app definitions
-- Create apps with AI, YAML or JSON
-- Share users, data and permissions across applications
-- Run applications on a common governed runtime
-- Define entities, views, workflows, calculations, hooks and more
-- Validate applications before they run
-- Generate standalone conventional source code from the same definition
-- Keep your application portable instead of locking it inside a proprietary builder
-- One application, two ways to run it
-
-A Cordango application is defined independently from how it is deployed.
+## One definition, two destinations
 
 ### Run it on Cordango
 
-Use the Cordango platform and its shared runtime, company data, identity, permissions, integrations and governance.
+Cordango Platform runs applications on a shared company foundation.
 
-###  Generate it as source code
+Apps can share things like **People, Organizations and Calendar**, reference records across applications, and react to events emitted by other apps instead of rebuilding the same company data in every tool.
 
-Compile the same application into a standalone project using a supported generator and deploy it wherever you want.
+```text
+Purchase Requests ──approved──► Budget Tracker
+        │
+        └──────────────────────► Vendor Management
 
-The application stays the same. The deployment model is your choice.
+PTO ───────────────────────────► Resource Planning
+```
+
+The applications remain separate. They just understand the same company.
+
+### Compile it to source
+
+The same App Definition can be compiled into a conventional standalone application.
+
+The current `dotnet-vue` target generates:
+
+```text
+ASP.NET Core
+EF Core
+PostgreSQL
+Vue 3
+Vuetify
+Docker
+```
+
+The generated project belongs to you.
+
+No Cordango account.
+No licence server.
+No model API.
+No phone home.
+
+The small standalone runtime can be referenced as a pinned NuGet package or embedded into the generated project.
+
+Delete the Cordango toolchain afterwards and the application still builds.
+
+## One app, three interfaces
+
+A generated application isn't just a web UI.
+
+The same application model is exposed to:
+
+```text
+Humans      → UI
+Software    → REST / OpenAPI
+AI agents   → MCP
+```
+
+The interfaces share the same underlying entities, commands and permission model.
+
+That means a command such as `approve_claim` is the same business action whether somebody clicks a button, calls the API or invokes it through MCP.
+
+## Deterministic where it should be
+
+AI is very good at reasoning about what an application should do.
+
+It does not need to reinvent authentication, persistence, API structure, migrations, permission plumbing and framework conventions every time.
+
+Cordango separates those jobs:
+
+> **The model describes the application. The compiler writes the repeatable parts.**
+
+Given the same App Definition, generator version and scaffold version, Cordango produces the same generated files byte for byte.
+
+That does not make a bad definition correct.
+
+It makes its implementation reproducible.
+
+## Built for humans and agents
+
+Cordango source is intentionally much smaller than the implementation it represents.
+
+For example, an application can define its own presentation and theme without describing Vuetify components or CSS:
+
+```yaml
+app: expenses
+name: Expenses
+version: 1.0.0
+
+presentation:
+  icon: credit-card-outline
+  color: '#ea580c'
+  category: Finance
+  tagline: Claims, approvals, reimbursement
+
+theme:
+  primaryColor: '#ea580c'
+  secondaryColor: '#f97316'
+  font: Inter
+  radius: medium
+  density: comfortable
+```
+
+Entities, roles, processes, pages and workflows live in their own semantic source files.
+
+Across five applications we measured, authoring the App Definition instead of generating the complete implementation required **90.6% to 98.4% fewer output tokens**.
+
+That saving is a consequence of the architecture, not the architecture itself.
+
+## More than CRUD
+
+The current application language includes things such as:
+
+- processes and guarded domain commands
+- workflows and scheduled automation
+- computed fields and dependency graphs
+- rollups and windowed calculations
+- ordered series with previous-row calculations
+- tables, boards, calendars, timelines and Gantt views
+- charts, dashboards, forms and configurable intake
+- field-level permissions
+- application events and cross-app subscriptions
+- shared company records
+- themes and application presentation
+
+The [`examples`](https://github.com/Cordango/examples) repository contains complete applications ranging from a one-entity expense approval app to a 16-entity financial planning application, plus connected Finance, People and Operations suites.
 
 ## The open foundation
 
-We're building the application definition, schema, compiler and source-generation tooling in the open.
+The application format, compiler, validator, CLI and standalone source generator are developed in the open under Apache-2.0.
 
-The hosted Cordango platform builds on top of that foundation with the runtime and company-wide services needed to operate applications at scale.
+The hosted Cordango Platform builds on that foundation with the shared runtime, company-wide data model, governance and cross-application capabilities.
 
+Calling the entire Cordango platform open source would be a stretch.
 
-More of the Cordango ecosystem will become public as it stabilizes.
+The boundary is simpler:
 
+**open toolchain, proprietary platform.**
 
+## Start here
 
-Cordango is still early, expect bugs :)
+**[cordango/cordango](https://github.com/Cordango/cordango)**  
+The application language, compiler, CLI and standalone generator.
 
-If you're interested in application runtimes, deterministic code generation, AI-assisted development, low-code, no-code or just making business software considerably less ridiculous, you're in the right place.
+**[cordango/examples](https://github.com/Cordango/examples)**  
+Complete applications and connected multi-app suites.
 
-Oh, and say hi to Dante!
+**[Documentation](https://docs.cordango.com)**  
+Concepts, authoring, CLI, MCP and deployment.
 
-<img width="680" height="581" alt="dante-blueprint" src="https://github.com/user-attachments/assets/be0ff18e-f48a-40de-8736-d43f5378ac8b" />
+**[Quickstart](https://docs.cordango.com/quickstart)**  
+From zero to a running generated application.
+
+**[Cordango Platform](https://www.cordango.com)**  
+The hosted company application platform.
+
+---
+
+Cordango is still **pre-alpha**. The language is moving, rough edges exist, and today `dotnet-vue` is the first complete generator target.
+
+If application languages, compilers, AI-assisted development, internal tools or making business software considerably less ridiculous sound interesting, have a look around.
+
+And say hi to Dante.
+
+<img width="680" height="581" alt="Dante" src="https://github.com/user-attachments/assets/be0ff18e-f48a-40de-8736-d43f5378ac8b" />
