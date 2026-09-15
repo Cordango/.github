@@ -203,6 +203,3 @@ Cordango is still **pre-alpha**. The language is moving, rough edges exist, and 
 
 If application languages, compilers, AI-assisted development, internal tools or making business software considerably less ridiculous sound interesting, have a look around.
 
-And say hi to Dante.
-
-<img width="680" height="581" alt="Dante" src="https://github.com/user-attachments/assets/be0ff18e-f48a-40de-8736-d43f5378ac8b" />
