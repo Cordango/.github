@@ -32,11 +32,32 @@ It's a separate product, not a requirement for using the compiler.
 
 ## Try the compiler
 
-If you have the .NET SDK installed:
+The CLI runs as a standalone binary. No .NET SDK needed.
+
+**macOS with Homebrew**
 
 ```sh
-dotnet tool install -g Cordango.Cli
+brew install cordango/tap/cordango
+```
 
+**Windows with Scoop**
+
+```powershell
+scoop bucket add cordango https://github.com/cordango/scoop-bucket
+scoop install cordango
+```
+
+**Linux or macOS with the install script**
+
+```sh
+curl -fsSL https://cordango.com/install.sh | sh
+```
+
+You can also [download the binary directly](https://github.com/cordango/cordango/releases/latest).
+
+Once installed:
+
+```sh
 cordango new expenses
 cd expenses
 cordango check
@@ -49,7 +70,7 @@ docker compose up --build
 
 Open `http://localhost:8080` and create your admin account.
 
-Prefer Homebrew, Scoop or a standalone binary? The [installation guide](https://docs.cordango.com/cli/install) has the options.
+More details are in the [installation guide](https://docs.cordango.com/cli/install). Docker is only used here to run the generated app.
 
 ## Where to go
 
